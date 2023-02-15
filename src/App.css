@@ -1,0 +1,13 @@
+/* BODY CSS */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500&display=swap');
+
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  background-color: #9596f1;
+}
+
+/* PRODUCT CARD CSS */
+.product_card:hover {
+  box-shadow: 2px 2px 10px 4px;
+}
