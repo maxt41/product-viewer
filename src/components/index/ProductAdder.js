@@ -9,6 +9,9 @@ const ProductAdder = ({ product }) => {
 
   const handleSubmit = () => {
     product({header: header, title: title, body: body})
+    setHeader([])
+    setTitle([])
+    setBody([])
   }
 
   return (
