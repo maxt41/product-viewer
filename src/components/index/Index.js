@@ -11,17 +11,17 @@ const Index = () => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
-    if (product) {
+    if (product) { // Check for products
       setProducts([
-        ...products,
-        product
+        ...products, // Keep previous products
+        product // Push new product to products
       ])
-      setProduct()
+      setProduct() // Set product in prep for new product
     }
   })
 
   const handleClick = () => {
-    setProducts([])
+    setProducts([]) // set products to empty arr
   }
 
   return (

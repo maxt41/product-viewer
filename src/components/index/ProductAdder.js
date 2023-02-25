@@ -8,7 +8,7 @@ const ProductAdder = ({ product }) => {
   const [body, setBody] = useState([])
 
   const handleSubmit = () => {
-    product({header: header, title: title, body: body})
+    product({header: header, title: title, body: body}) // Set prop to be returned
     setHeader([])
     setTitle([])
     setBody([])
