@@ -18,10 +18,10 @@ const Index = () => {
       ])
       setProduct() // Set product in prep for new product
     }
-  })
+  }, [product, products])
 
   const handleClick = () => {
-    setProducts([]) // set products to empty arr
+    setProducts([]) // set products to empty array
   }
 
   return (
@@ -32,9 +32,9 @@ const Index = () => {
             <Button className='btn-danger mt-1' onClick={handleClick}>Clear</Button>
           </Col>
         </Row>
-        <Row style={{margin: '10px', display: 'flex', justifyContent: 'center'}}>
+        <Row style={{margin: '10px'}}>
             {((products.length > 0) ? products.map((product, index) => {
-            return <Product key={index} header={product.header} title={product.title} body={product.body}/>
+            return <Col style={{alignItems: 'center'}} key={index}><Product key={index} header={product.header} title={product.title} body={product.body} UID={product.UID}/></Col>
             }) : null)}
         </Row>
     </Container>

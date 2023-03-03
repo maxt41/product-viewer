@@ -6,12 +6,19 @@ const ProductAdder = ({ product }) => {
   const [header, setHeader] = useState([])
   const [title, setTitle] = useState([])
   const [body, setBody] = useState([])
+  const [cannotBeEmpty, setCannotBeEmpty] = useState('')
 
   const handleSubmit = () => {
-    product({header: header, title: title, body: body}) // Set prop to be returned
-    setHeader([])
-    setTitle([])
-    setBody([])
+    if(header.length > 0 && title.length > 0 && body.length > 0) {
+      const UID = Math.floor(Math.random() * 9999999) // Generate unique ID
+      product({header, title, body, UID }) // Set prop to be returned
+      setHeader([])
+      setTitle([])
+      setBody([])
+      setCannotBeEmpty([])
+    } else {
+      setCannotBeEmpty('All fields must be completed.')
+    }
   }
 
   return (
@@ -30,6 +37,11 @@ const ProductAdder = ({ product }) => {
         <Form.Label>Product Body</Form.Label>
         <Form.Control value={body} onChange={e => setBody(e.target.value)} type="text" placeholder="Product Body" />
       </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Text style={{color: 'red', opacity: '80%'}}>{cannotBeEmpty}</Form.Text>
+      </Form.Group>
+
 
       <Button onClick={handleSubmit} className='btn-success'>Submit</Button>
     </Form>
